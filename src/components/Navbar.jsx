@@ -5,7 +5,7 @@ import logo from "../assets/mobileLogo.png"
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center bg-gray-300 h-20 w-screen px-4">
+    <nav className="flex items-center bg-gray-800 h-20 w-screen px-4">
       <div className="flex items-center">
         <img src={logo} alt="Logo" className="h-8 mr-4" height={50} width={40} />
       </div>
