@@ -6,6 +6,20 @@ export const NAV_LINKS = [
     {href: '/bestplan', key: 'bestplan', label: 'BestPlan'}
 ]
 
+export const featureLists =[
+  {href: '/crawl', key: 'crawler', label: 'Crawler'},
+  {href: '/HTMLParser', key: 'parser', label: 'HTML Parser'},
+  {href: '/frequencyCount', key: 'freqCount', label: 'Frequency Count'},
+  {href: '/searchFrequency', key: 'searchFreq', label: 'Search Frequency'},
+  {href: '/invertedIndexing', key: 'invIndex', label: 'Inverted Indexing'},
+  {href: '/webScarping', key: 'webScrap', label: 'Web Scraping'},
+  {href: '/findPatterns', key: 'findPatterns', label: 'Finding Patterns'},
+  {href: '/pageRanking', key: 'pageRank', label: 'Page Ranking'},
+  {href: '/spellCheck', key: 'spellCheck', label: 'Spell Checking'},
+  {href: '/wordCompletion', key: 'wordCompletion', label: 'Word Completion'},
+  {href: '/dataValidation', key: 'dataValid', label: 'Data Validation'},
+]
+
 export const bellPlans = [
     {
       "planData": "5G",
