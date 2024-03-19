@@ -44,13 +44,13 @@ const Navbar = () => {
           onClick={toggleDropdown}
         />
         {isDropdownOpen && (
-          <div className="absolute top-20 right-4 bg-gray-300 p-4 w-80 h-96 z-10 border border-white overflow-y-auto">
+          <div className="absolute top-20 right-4 bg-black p-4 w-80 h-96 z-10 border border-white overflow-y-auto">
             <ul>
               {featureLists.map((link) => (
                 <li key={link.key} className="mt-4">
                   <Link
                     to={link.href}
-                    className="text-lg text-gray-300 cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
+                    className="text-lg text-white cursor-pointer transition-all hover:font-bold px-4 py-2 hover:text-white"
                   >
                     {link.label}
                   </Link>
