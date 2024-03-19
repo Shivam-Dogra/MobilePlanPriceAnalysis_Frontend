@@ -14,7 +14,13 @@ const Navbar = () => {
   return (
     <nav className="flex items-center bg-gray-400 h-20 w-screen px-4">
       <div className="flex items-center">
-        <img src={logo} alt="Logo" className="h-8 mr-4" height={50} width={40} />
+        <img
+          src={logo}
+          alt="Logo"
+          className="h-8 mr-4"
+          height={50}
+          width={40}
+        />
       </div>
       <div className="justify-center items-center flex-grow">
         <ul className="flex justify-center items-center gap-4">
@@ -34,17 +40,17 @@ const Navbar = () => {
         <img
           src={menuIcon}
           alt="Menu"
-          className="h-6 ml-4 cursor-pointer"
+          className="h-6 ml-4 mr-6 cursor-pointer"
           onClick={toggleDropdown}
         />
         {isDropdownOpen && (
-          <div className="absolute top-20 right-0 bg-gray-400 rounded-lg p-2">
+          <div className="absolute top-20 right-4 bg-gray-400 p-4 w-80 h-96 z-10 border border-white overflow-y-auto">
             <ul>
               {featureLists.map((link) => (
-                <li key={link.key}>
+                <li key={link.key} className="mt-4">
                   <Link
                     to={link.href}
-                    className="text-black hover:text-white"
+                    className="font-serif text-lg text-black cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
                   >
                     {link.label}
                   </Link>
