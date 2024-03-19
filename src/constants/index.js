@@ -1,22 +1,21 @@
 export const NAV_LINKS = [
     {href: '/', key: 'home', label: 'Home'}, 
-    {href: '/bell', key: 'bell', label: 'Bell'},
-    {href: '/rogers', key: 'rogers', label: 'Rogers'},
-    {href: '/freedom', key: 'freedom', label: 'Freedom'},
-    {href: '/bestplan', key: 'bestplan', label: 'BestPlan'}
+    {href: 'mobile-plans/bell', key: 'bell', label: 'Bell'},
+    {href: 'mobile-plans/rogers', key: 'rogers', label: 'Rogers'},
+    {href: 'mobile-plans/freedom', key: 'freedom', label: 'Freedom'},
+    {href: 'mobile-plans/bestplan', key: 'bestplan', label: 'BestPlan'}
 ]
 
 export const featureLists =[
-  {href: '/crawl', key: 'crawler', label: 'Crawler'},
-  {href: '/frequencyCount', key: 'freqCount', label: 'Frequency Count'},
-  {href: '/searchFrequency', key: 'searchFreq', label: 'Search Frequency'},
-  {href: '/invertedIndexing', key: 'invIndex', label: 'Inverted Indexing'},
-  {href: '/webScarping', key: 'webScrap', label: 'Web Scraping'},
-  {href: '/findPatterns', key: 'findPatterns', label: 'Finding Patterns'},
-  {href: '/pageRanking', key: 'pageRank', label: 'Page Ranking'},
-  {href: '/spellCheck', key: 'spellCheck', label: 'Spell Checking'},
-  {href: '/wordCompletion', key: 'wordCompletion', label: 'Word Completion'},
-  {href: '/dataValidation', key: 'dataValid', label: 'Data Validation'},
+  {href: '/mobile-plans/crawl', key: 'crawler', label: 'Crawler'},
+  {href: '/mobile-plans/frequencyCount', key: 'freqCount', label: 'Frequency Count'},
+  {href: '/mobile-plans/searchFrequency', key: 'searchFreq', label: 'Search Frequency'},
+  {href: '/mobile-plans/invertedIndexing', key: 'invIndex', label: 'Inverted Indexing'},
+  {href: '/mobile-plans/findPatterns', key: 'findPatterns', label: 'Finding Patterns'},
+  {href: '/mobile-plans/pageRanking', key: 'pageRank', label: 'Page Ranking'},
+  {href: '/mobile-plans/spellCheck', key: 'spellCheck', label: 'Spell Checking'},
+  {href: '/mobile-plans/wordCompletion', key: 'wordCompletion', label: 'Word Completion'},
+  {href: '/mobile-plans/dataValidation', key: 'dataValid', label: 'Data Validation'},
 ]
 
 export const bellPlans = [

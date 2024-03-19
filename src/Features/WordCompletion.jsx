@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Crawler = () => {
+const WordCompletion = () => {
   return (
     <div className='text-white flex justify-center items-center text-2xl'>
-      Crawler
-    </div> 
+       Word Completion 
+    </div>
   )
 }
 
-export default Crawler
+export default WordCompletion

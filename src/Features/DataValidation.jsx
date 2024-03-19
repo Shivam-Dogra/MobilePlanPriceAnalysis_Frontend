@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Crawler = () => {
+const DataValidation = () => {
   return (
     <div className='text-white flex justify-center items-center text-2xl'>
-      Crawler
-    </div> 
+      Data Validation
+    </div>
   )
 }
 
-export default Crawler
+export default DataValidation

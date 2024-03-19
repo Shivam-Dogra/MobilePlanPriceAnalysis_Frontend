@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Crawler = () => {
+const InvertedIndexing = () => {
   return (
     <div className='text-white flex justify-center items-center text-2xl'>
-      Crawler
-    </div> 
+      Inverted Indexing
+    </div>
   )
 }
 
-export default Crawler
+export default InvertedIndexing

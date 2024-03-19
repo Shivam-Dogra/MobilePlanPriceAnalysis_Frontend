@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Crawler = () => {
+const PageRanking = () => {
   return (
     <div className='text-white flex justify-center items-center text-2xl'>
-      Crawler
-    </div> 
+      Page Ranking
+    </div>
   )
 }
 
-export default Crawler
+export default PageRanking
