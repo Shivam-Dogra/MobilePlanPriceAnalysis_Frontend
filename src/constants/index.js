@@ -124,3 +124,27 @@ export const bellPlans = [
         "callAndTextAllowance": "Unlimited talk & text"
         }
   ]
+
+  export const bestPrice = [
+    {
+      "planData" : "5G",
+      "provider": "Freedom",
+      "planName": "UNLIMITED 50GB",
+      "monthlyCost": "$34",
+      "dataAllowance": "50GB",
+      "networkCoverage": "5G",
+      "callAndTextAllowance": "Unlimited talk (calls to Canada & U.S. from both Canada & U.S.)"
+  }
+  ]
+
+  export const bestData = [
+    {
+      "planData" : "5G",
+      "provider": "Rogers",
+      "planName": "5G Infinite Premium",
+      "monthlyCost": "$75.00 per mo±",
+      "dataAllowance": "Unlimited data",
+      "networkCoverage": "Access to 5G/5G+ network",
+      "callAndTextAllowance": "Calling, texting and data within Canada, the US, Mexico2 and the Caribbean"
+  }
+  ]
