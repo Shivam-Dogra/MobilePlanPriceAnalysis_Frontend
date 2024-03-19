@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center bg-gray-400 h-20 w-screen px-4">
+    <nav className="flex items-center bg-gray-300 h-20 w-screen px-4 sticky top-0 z-50">
       <div className="flex items-center">
         <img
           src={logo}
