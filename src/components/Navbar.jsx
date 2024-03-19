@@ -28,7 +28,7 @@ const Navbar = () => {
             <li key={link.key} className="py-2">
               <Link
                 to={link.href}
-                className="font-serif text-2xl text-white cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
+                className="font-serif text-2xl text-white cursor-pointer transition-all hover:font-bold px-4 py-2 hover:text-gray-500"
               >
                 {link.label}
               </Link>
