@@ -7,6 +7,7 @@ import Rogers from "./components/Rogers";
 import Freedom from "./components/Freedom";
 import Home from "./components/Home";
 import BestPlan from "./components/BestPlan";
+import Crawler from "./Features/Crawler";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/rogers" element={<Rogers/>}/>
         <Route path="/freedom" element={<Freedom/>}/>
         <Route path="/bestplan" element={<BestPlan/>}/>
+        <Route path="/crawl" element={<Crawler/>}/>
       </Routes>
     </>
   );
