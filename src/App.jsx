@@ -15,6 +15,7 @@ import FindingPatterns from "./Features/FindingPatterns";
 import SpellChecking from "./Features/SpellChecking";
 import WordCompletion from "./Features/WordCompletion";
 import DataValidation from "./Features/DataValidation";
+import PageRanking from "./Features/PageRanking";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/mobile-plans/spellCheck" element={<SpellChecking/>}/>
         <Route path="/mobile-plans/wordCompletion" element={<WordCompletion/>}/>
         <Route path="/mobile-plans/dataValidation" element={<DataValidation/>}/>
+        <Route path="/mobile-plans/pageRanking" element={<PageRanking/>}/>
       </Routes>
     </>
   );
