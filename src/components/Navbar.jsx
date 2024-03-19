@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center bg-gray-300 h-20 w-screen px-4 sticky top-0 z-50">
+    <nav className="flex items-center bg-black h-20 w-screen px-4 sticky top-0 z-50">
       <div className="flex items-center">
         <img
           src={logo}
@@ -28,7 +28,7 @@ const Navbar = () => {
             <li key={link.key} className="py-2">
               <Link
                 to={link.href}
-                className="font-serif text-2xl text-black cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
+                className="font-serif text-2xl text-white cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
               >
                 {link.label}
               </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <li key={link.key} className="mt-4">
                   <Link
                     to={link.href}
-                    className="font-serif text-lg text-black cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
+                    className="font-serif text-lg text-gray-300 cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
                   >
                     {link.label}
                   </Link>
