@@ -8,7 +8,6 @@ export const NAV_LINKS = [
 
 export const featureLists =[
   {href: '/crawl', key: 'crawler', label: 'Crawler'},
-  {href: '/HTMLParser', key: 'parser', label: 'HTML Parser'},
   {href: '/frequencyCount', key: 'freqCount', label: 'Frequency Count'},
   {href: '/searchFrequency', key: 'searchFreq', label: 'Search Frequency'},
   {href: '/invertedIndexing', key: 'invIndex', label: 'Inverted Indexing'},
