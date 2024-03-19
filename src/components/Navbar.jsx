@@ -28,7 +28,7 @@ const Navbar = () => {
             <li key={link.key} className="py-2">
               <Link
                 to={link.href}
-                className="font-serif text-2xl text-white cursor-pointer transition-all hover:font-bold px-4 py-2 hover:text-gray-500"
+                className="text-2xl text-white cursor-pointer transition-all hover:font-bold px-4 py-2 hover:text-gray-500"
               >
                 {link.label}
               </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <li key={link.key} className="mt-4">
                   <Link
                     to={link.href}
-                    className="font-serif text-lg text-gray-300 cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
+                    className="text-lg text-gray-300 cursor-pointer transition-all hover:font-bold hover:bg-black hover:rounded-lg px-4 py-2 hover:text-white"
                   >
                     {link.label}
                   </Link>
