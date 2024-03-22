@@ -68,7 +68,7 @@ const Search = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-full mb-10">
       <div style={{ width: '100%', maxWidth: '800px', marginTop: '-15rem' }}> {/* Reduced margin top */}
             <Lottie animationData={plane} />
           </div>
@@ -113,8 +113,8 @@ const Search = () => {
         </div>
       )}
       {searchResults.length > 0 && (
-        <div className="mt-8">
-        <h3 className="text-white text-lg font-bold mb-4">Search Results:</h3>
+        <div className="m-14">
+        <h3 className="text-white text-lg font-bold mb-4 relative ml-24">Search Results:</h3>
         <div className="flex flex-wrap justify-center gap-4">
             {searchResults.map((result, index) => (
               <div key={index} className="bg-gray-100 rounded-l shadow-md p-3 mb-3 max-w-md">

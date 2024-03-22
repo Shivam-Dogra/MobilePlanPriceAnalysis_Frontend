@@ -3,7 +3,7 @@ import React from 'react';
 const Team = () => {
   // Define an array of team members with names, student IDs, and image URLs
   const teamMembers = [
-    { name: 'Shivam Dogra', studentId: '110136372', imageUrl: 'url_to_image_1' },
+    { name: 'Shivam Dogra', studentId: '110136372', imageUrl: 'url_to_image1' },
     { name: 'Anisha Miyan', studentId: '987654321', imageUrl: 'url_to_image_2' },
     { name: 'Palak Desai', studentId: '456789123', imageUrl: 'url_to_image_3' },
     { name: 'Jasmine Kaur Gill', studentId: '321654987', imageUrl: 'url_to_image_4' },
