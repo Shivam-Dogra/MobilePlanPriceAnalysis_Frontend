@@ -1,13 +1,18 @@
 import React from 'react';
+import shivamImage from '../assets/shivam.jpg';
+import anishaImage from '../assets/anisha.jpg';
+import palakImage from '../assets/palak.jpg';
+import jasmineImage from '../assets/jasmine.jpg';
+import namanImage from '../assets/naman.jpg'
 
 const Team = () => {
   // Define an array of team members with names, student IDs, and image URLs
   const teamMembers = [
-    { name: 'Shivam Dogra', studentId: '110136372', imageUrl: 'url_to_image1' },
-    { name: 'Anisha Miyan', studentId: '987654321', imageUrl: 'url_to_image_2' },
-    { name: 'Palak Desai', studentId: '456789123', imageUrl: 'url_to_image_3' },
-    { name: 'Jasmine Kaur Gill', studentId: '321654987', imageUrl: 'url_to_image_4' },
-    { name: 'Namandeep Kaur', studentId: '654321987', imageUrl: 'url_to_image_5' }
+    { name: 'Shivam Dogra', studentId: '110136372', imageUrl: shivamImage },
+    { name: 'Anisha Miyan', studentId: '987654321', imageUrl: anishaImage },
+    { name: 'Palak Desai', studentId: '456789123', imageUrl: palakImage },
+    { name: 'Jasmine Kaur Gill', studentId: '321654987', imageUrl: jasmineImage },
+    { name: 'Namandeep Kaur', studentId: '654321987', imageUrl: namanImage }
   ];
 
   return (
