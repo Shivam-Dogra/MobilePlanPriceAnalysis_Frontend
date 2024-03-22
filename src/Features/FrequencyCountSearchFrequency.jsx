@@ -40,52 +40,53 @@ const FrequencyCount = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center"></div>
-      <div className="text-white flex justify-center items-center m-8 text-3xl">
-        Frequency Count & Search Frequency
-      </div>
-      <div className="flex flex-row justify-center items-center gap-4">
-        <input
-          type="text"
-          className={`border border-gray-300 rounded-l-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl`}
-          placeholder="Enter a word"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <Button
-          text="Count"
-          style={{ width: "120px" }}
-          onClick={handleCountButtonClick}
-        />
-      </div>
-      {Object.keys(frequencyCountData).length !== 0 && (
-        <div className="flex flex-col items-start mt-4">
-          <div className="bg-white text-gray-800 rounded-md p-2 mb-2">
-            <ul>
-              {Object.entries(frequencyCountData).map(([url, count]) => (
-                <li key={url}>
-                  {url}: {count}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-wrap items-start">
-            {searchFrequencyData.map(({ word, frequency }) => (
-              <div
-                key={word}
-                className="bg-white text-gray-800 rounded-md p-2 mb-2 mr-2"
-              >
-                <p>
-                  {word}:{" "}
-                  <span className="bg-blue-200 text-white rounded-full px-2">
-                    {frequency}
-                  </span>
-                </p>
-              </div>
-            ))}
-          </div>
+      <div className="flex flex-col items-center justify-center">
+        <div className="text-white flex justify-center items-center m-8 text-3xl">
+          Frequency Count & Search Frequency
         </div>
-      )}
+        <div className="flex flex-row justify-center items-center gap-4 m-4">
+          <input
+            type="text"
+            className={`border border-gray-300 rounded-l-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl`}
+            placeholder="Enter a word"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <Button
+            text="Count"
+            style={{ width: "120px"}}
+            onClick={handleCountButtonClick}
+          />
+        </div>
+        {Object.keys(frequencyCountData).length !== 0 && (
+          <div className="flex flex-col items-start mt-4">
+            <div className="bg-white text-gray-800 rounded-md p-2 mb-2">
+              <ul>
+                {Object.entries(frequencyCountData).map(([url, count]) => (
+                  <li key={url}>
+                    {url}: {count}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-wrap items-start">
+              {searchFrequencyData.map(({ word, frequency }) => (
+                <div
+                  key={word}
+                  className="bg-white text-gray-800 rounded-md p-2 my-4 py-3"
+                >
+                  <p>
+                    {word}:{" "}
+                    <span className="bg-blue-200 text-white rounded-full px-2">
+                      {frequency}
+                    </span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };
