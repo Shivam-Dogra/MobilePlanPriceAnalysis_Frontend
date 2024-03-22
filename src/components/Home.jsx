@@ -24,7 +24,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-    <div className="flex justify-center mt-10  bg-gray-900">
+    <div className="flex justify-center bg-gray-900">
         <Search /> 
       </div>
     </>
