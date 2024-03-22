@@ -3,7 +3,7 @@ import axios from "axios";
 import plansData from "../constants/Plans.json";
 import plane from "../assets/plane.json";
 import Lottie from "lottie-react";
-import bell from "../assets/bell.jpg";
+import bell from "../assets/bell.png";
 import rogers from "../assets/rogers.png";
 import freedom from "../assets/freedom.png";
 
@@ -164,35 +164,35 @@ const Search = () => {
       )}
       {searchResults.length > 0 && (
         <div className="m-14">
-          <h3 className="text-white text-lg font-bold mb-4 relative">
+          <h3 className="text-white text-2xl font-bold mb-4 relative">
             Search Results:
           </h3>
           <div className="grid grid-cols-3 gap-8">
             {searchResults.map((result, index) => (
               <div
                 key={index}
-                className="bg-white rounded-md shadow-md p-3 mb-3 max-w-md relative"
+                className="bg-white rounded-md border-4 border-blue-300 shadow-md p-3 mb-3 max-w-md relative"
               >
                 {/* Render icon based on provider */}
                 {result.provider === "Bell" && (
                   <img
                     src={bell}
                     alt="Bell"
-                    className="absolute top-6 right-6 w-14 h-14"
+                    className="absolute top-2 right-8 w-1/6 h-1/6"
                   />
                 )}
                 {result.provider === "Rogers" && (
                   <img
                     src={rogers}
                     alt="Rogers"
-                    className="absolute top-6 right-6 w-14 h-12"
+                    className="absolute top-6 right-6 w-1/4 h-12"
                   />
                 )}
                 {result.provider === "Freedom" && (
                   <img
                     src={freedom}
                     alt="Freedom"
-                    className="absolute top-6 right-6 w-14 h-14"
+                    className="absolute top-2 right-4 w-1/5 h-1/5"
                   />
                 )}
 
@@ -200,9 +200,9 @@ const Search = () => {
                 {Object.entries(result).map(([key, value]) => (
                   <p
                     key={key}
-                    className="text-gray-700 text-lg font-semibold  m-6"
+                    className="text-gray-700 text-xl font-semibold  m-6"
                   >
-                    {key}: {value}
+                    {key}:    {value}
                   </p>
                 ))}
               </div>
