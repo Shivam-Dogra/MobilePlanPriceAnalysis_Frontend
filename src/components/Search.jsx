@@ -15,6 +15,7 @@ const Search = () => {
   const handleSearchQueryChange = (e) => {
     const value = e.target.value;
     setSearchQuery(value);
+    setError('');
 
     // Call the word completion API for word completions
     axios.get(`http://localhost:9091/mobile-plans/wordcompletion/${value}`)
@@ -34,39 +35,80 @@ const Search = () => {
 
   const handleSearch = () => {
     if (searchQuery.trim() === '') {
-      setError('Please enter text to search.'); // Set error message state
-      return; // Exit the function early
+      setError('Please enter text to search 😬'); 
+      return; 
     }
-  
-    // Clear any previous error messages
     setError('');
 
     setWordCompletions([]);
 
     axios.get(`http://localhost:9091/mobile-plans/spellCheck/${searchQuery}`)
       .then(response => {
-        const suggestions = response.data;
-        setSpellingSuggestions(suggestions);
-        setShowSuggestions(true);
+        if (response.data.length === 0) {
+          setError('No matching words in our dictionary 🥹 Try another word!!');
+          setShowSuggestions(false);
+          setSearchResults([]);
+        } else {
+          const suggestions = response.data;
+          setSpellingSuggestions(suggestions);
+          setShowSuggestions(true);
+        }
       })
       .catch(error => {
+        setError('Invalid word format 🤥');
         console.error('Error fetching spelling suggestions:', error);
         setSpellingSuggestions([]);
         setShowSuggestions(false);
       });
 
+
+    //Filter   
+    /*
     const filteredResults = plansData.filter(plan => {
       const queryLowerCase = searchQuery.toLowerCase();
       return (
-        plan.planName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        plan.planData.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        plan.provider.toLowerCase() === queryLowerCase 
+        plan.provider.toLowerCase().includes(queryLowerCase) ||
+      plan.planName.toLowerCase().includes(queryLowerCase) ||
+      plan.planData.toLowerCase().includes(queryLowerCase) ||
+      plan.monthlyCost.toLowerCase().includes(queryLowerCase) ||
+      plan.dataAllowance.toLowerCase().includes(queryLowerCase) ||
+      plan.networkCoverage.toLowerCase().includes(queryLowerCase) ||
+      plan.callAndTextAllowance.toLowerCase().includes(queryLowerCase)
       );
     });
 
+    console.log('Filtered Results:', filteredResults); // Log filtered results
+
     setSearchResults(filteredResults);
+    */
+    const filteredResults = plansData.reduce((accumulator, plan) => {
+      const queryLowerCase = searchQuery.toLowerCase();
+      const matchedProps = {
+        provider: plan.provider,
+        planName: plan.planName,
+        planData: plan.planData,
+        monthlyCost: plan.monthlyCost,
+        dataAllowance: plan.dataAllowance,
+        networkCoverage: plan.networkCoverage,
+        callAndTextAllowance: plan.callAndTextAllowance
+      };
+    
+      Object.keys(matchedProps).forEach(prop => {
+        if (matchedProps[prop].toLowerCase().includes(queryLowerCase)) {
+          accumulator.push(matchedProps);
+        }
+      });
+    
+      return accumulator;
+    }, []);
+    
+    setSearchResults(filteredResults);
+
+    
   };
 
+
+  //Web page
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div style={{ width: '100%', maxWidth: '800px', marginTop: '-15rem' }}> {/* Reduced margin top */}
