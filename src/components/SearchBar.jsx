@@ -6,7 +6,7 @@ const SearchBar = ({ placeholder, value, onChange }) => {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="m-4 w-full ">
       <input
         type="text"
         className = "border border-gray-200 rounded-md px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
