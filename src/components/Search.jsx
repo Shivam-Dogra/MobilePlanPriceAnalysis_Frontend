@@ -1,30 +1,34 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import plansData from '../constants/Plans.json';
-import plane from '../assets/plane.json'
-import Lottie from 'lottie-react';
+import React, { useState } from "react";
+import axios from "axios";
+import plansData from "../constants/Plans.json";
+import plane from "../assets/plane.json";
+import Lottie from "lottie-react";
+import bell from "../assets/bell.jpg";
+import rogers from "../assets/rogers.png";
+import freedom from "../assets/freedom.png";
 
 const Search = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [spellingSuggestions, setSpellingSuggestions] = useState([]);
   const [wordCompletions, setWordCompletions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSearchQueryChange = (e) => {
     const value = e.target.value;
     setSearchQuery(value);
-    setError('');
+    setError("");
 
     // Call the word completion API for word completions
-    axios.get(`http://localhost:9091/mobile-plans/wordcompletion/${value}`)
-      .then(response => {
-        const completion = response.data['Last Word'];
+    axios
+      .get(`http://localhost:9091/mobile-plans/wordcompletion/${value}`)
+      .then((response) => {
+        const completion = response.data["Last Word"];
         setWordCompletions([completion]);
       })
-      .catch(error => {
-        console.error('Error fetching word completion:', error);
+      .catch((error) => {
+        console.error("Error fetching word completion:", error);
         setWordCompletions([]);
       });
 
@@ -34,18 +38,19 @@ const Search = () => {
   };
 
   const handleSearch = () => {
-    if (searchQuery.trim() === '') {
-      setError('Please enter text to search 😬'); 
-      return; 
+    if (searchQuery.trim() === "") {
+      setError("Please enter text to search 😬");
+      return;
     }
-    setError('');
+    setError("");
 
     setWordCompletions([]);
 
-    axios.get(`http://localhost:9091/mobile-plans/spellCheck/${searchQuery}`)
-      .then(response => {
+    axios
+      .get(`http://localhost:9091/mobile-plans/spellCheck/${searchQuery}`)
+      .then((response) => {
         if (response.data.length === 0) {
-          setError('No matching words in our dictionary 🥹 Try another word!!');
+          setError("No matching words in our dictionary 🥹 Try another word!!");
           setShowSuggestions(false);
           setSearchResults([]);
         } else {
@@ -54,15 +59,14 @@ const Search = () => {
           setShowSuggestions(true);
         }
       })
-      .catch(error => {
-        setError('Invalid word format 🤥');
-        console.error('Error fetching spelling suggestions:', error);
+      .catch((error) => {
+        setError("Invalid word format 🤥");
+        console.error("Error fetching spelling suggestions:", error);
         setSpellingSuggestions([]);
         setShowSuggestions(false);
       });
 
-
-    //Filter   
+    //Filter
     /*
     const filteredResults = plansData.filter(plan => {
       const queryLowerCase = searchQuery.toLowerCase();
@@ -90,31 +94,32 @@ const Search = () => {
         monthlyCost: plan.monthlyCost,
         dataAllowance: plan.dataAllowance,
         networkCoverage: plan.networkCoverage,
-        callAndTextAllowance: plan.callAndTextAllowance
+        callAndTextAllowance: plan.callAndTextAllowance,
       };
-    
-      Object.keys(matchedProps).forEach(prop => {
+
+      Object.keys(matchedProps).forEach((prop) => {
         if (matchedProps[prop].toLowerCase().includes(queryLowerCase)) {
           accumulator.push(matchedProps);
         }
       });
-    
+
       return accumulator;
     }, []);
-    
+
     setSearchResults(filteredResults);
-
-    
   };
-
 
   //Web page
   return (
     <div className="flex flex-col items-center justify-center h-full mb-10">
-      <div style={{ width: '100%', maxWidth: '800px', marginTop: '-15rem' }}> {/* Reduced margin top */}
-            <Lottie animationData={plane} />
-          </div>
-      <h1 className="text-4xl font-bold mb-8 text-center text-white">Want to know more about Mobile Plans?</h1>
+      <div style={{ width: "100%", maxWidth: "800px", marginTop: "-15rem" }}>
+        {" "}
+        {/* Reduced margin top */}
+        <Lottie animationData={plane} />
+      </div>
+      <h1 className="text-4xl font-bold mb-8 text-center text-white">
+        Want to know more about Mobile Plans?
+      </h1>
       <div className="relative flex items-center mt-4">
         <input
           type="text"
@@ -130,12 +135,12 @@ const Search = () => {
           Search
         </button>
       </div>
-      {error && (
-        <p className="text-red-500 mt-2">{error}</p>
-      )}
+      {error && <p className="text-red-500 mt-2">{error}</p>}
       {showSuggestions && (
         <div className="flex flex-col justify-center mt-4 gap-4 text-center">
-          <h3 className="text-gray-500 text-lg font-bold mb-2">Did you mean?</h3>
+          <h3 className="text-gray-500 text-lg font-bold mb-2">
+            Did you mean?
+          </h3>
           <div className="flex flex-wrap justify-center">
             {spellingSuggestions.map((suggestion, index) => (
               <div key={index} className="bg-gray-300 rounded-md p-2 mr-2">
@@ -148,7 +153,10 @@ const Search = () => {
       {wordCompletions.length > 0 && (
         <div className="flex flex-wrap justify-center mt-4 gap-4">
           {wordCompletions.map((wordCompletion, index) => (
-            <div key={index} className="bg-gray-300 rounded-md p-2 text-center mx-1">
+            <div
+              key={index}
+              className="bg-gray-300 rounded-md p-2 text-center mx-1"
+            >
               {wordCompletion}
             </div>
           ))}
@@ -156,17 +164,47 @@ const Search = () => {
       )}
       {searchResults.length > 0 && (
         <div className="m-14">
-        <h3 className="text-white text-lg font-bold mb-4 relative ml-24">Search Results:</h3>
-        <div className="flex flex-wrap justify-center gap-4">
+          <h3 className="text-white text-lg font-bold mb-4 relative">
+            Search Results:
+          </h3>
+          <div className="grid grid-cols-3 gap-8">
             {searchResults.map((result, index) => (
-              <div key={index} className="bg-gray-100 rounded-l shadow-md p-3 mb-3 max-w-md">
-                <p className="text-gray-700 text-l font-semibold mb-1">Provider: {result.provider}</p>
-                <p className="text-gray-700 text-l  font-semibold mb-1">Plan Name: {result.planName}</p>
-                <p className="text-gray-700 text-l  font-semibold mb-1">Plan Data: {result.planData}</p>
-                <p className="text-gray-700 text-l  font-semibold mb-1">Monthly Cost: {result.monthlyCost}</p>
-                <p className="text-gray-700 text-l  font-semibold mb-1">Data Allowance: {result.dataAllowance}</p>
-                <p className="text-gray-700 text-l  font-semibold mb-1">Network Coverage: {result.networkCoverage}</p>
-                <p className="text-gray-700 text-l  font-semibold mb-1">Call and Text Allowance: {result.callAndTextAllowance}</p>
+              <div
+                key={index}
+                className="bg-white rounded-md shadow-md p-3 mb-3 max-w-md relative"
+              >
+                {/* Render icon based on provider */}
+                {result.provider === "Bell" && (
+                  <img
+                    src={bell}
+                    alt="Bell"
+                    className="absolute top-6 right-6 w-14 h-14"
+                  />
+                )}
+                {result.provider === "Rogers" && (
+                  <img
+                    src={rogers}
+                    alt="Rogers"
+                    className="absolute top-6 right-6 w-14 h-12"
+                  />
+                )}
+                {result.provider === "Freedom" && (
+                  <img
+                    src={freedom}
+                    alt="Freedom"
+                    className="absolute top-6 right-6 w-14 h-14"
+                  />
+                )}
+
+                {/* Render other details */}
+                {Object.entries(result).map(([key, value]) => (
+                  <p
+                    key={key}
+                    className="text-gray-700 text-lg font-semibold  m-6"
+                  >
+                    {key}: {value}
+                  </p>
+                ))}
               </div>
             ))}
           </div>
@@ -177,4 +215,3 @@ const Search = () => {
 };
 
 export default Search;
-
