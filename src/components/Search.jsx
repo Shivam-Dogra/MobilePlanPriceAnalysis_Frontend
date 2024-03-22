@@ -76,7 +76,7 @@ const Search = () => {
       <div className="relative flex items-center mt-4">
         <input
           type="text"
-          className="border border-gray-300 rounded-l-md px-4 py-3 w-72 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
+          className="border border-gray-300 rounded-l-md px-4 py-3 w-72 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl mr-4"
           placeholder="Search..."
           value={searchQuery}
           onChange={handleSearchQueryChange}
