@@ -7,13 +7,15 @@ const FrequencyCount = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [frequencyCountData, setFrequencyCountData] = useState({});
   const [searchFrequencyData, setSearchFrequencyData] = useState([]);
+  const [error, setError] = useState(""); 
 
   const handleCountButtonClick = () => {
     if (searchQuery.trim() === "") {
-      alert("Please enter a word to count."); // Display an alert if no word is entered
+      setError("Please enter a word to count 😬"); 
       return;
     }
-    // Call the frequency count API
+    setError("");
+
     axios
       .get(`http://localhost:9091/mobile-plans/frequencyCount/${searchQuery}`)
       .then((response) => {
@@ -21,6 +23,12 @@ const FrequencyCount = () => {
       })
       .catch((error) => {
         console.error("Error fetching frequency count:", error);
+        if (error.response && error.response.status === 400) {
+          setError("Invalid word list format. Please check your input 😬"); 
+      }  
+      else {
+        setError("Failed to count the frequency. Please try again. 😬"); 
+      }
       });
   };
 
@@ -58,6 +66,7 @@ const FrequencyCount = () => {
             onClick={handleCountButtonClick}
           />
         </div>
+        {error && (<p className="text-red-500">{error}</p>)}
         {Object.keys(frequencyCountData).length !== 0 && (
           <div className="flex flex-col items-start mt-4">
             <div className="bg-white text-gray-800 rounded-md p-2 mb-2">
