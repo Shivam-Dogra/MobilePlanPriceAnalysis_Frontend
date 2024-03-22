@@ -16,18 +16,18 @@ const Team = () => {
   ];
 
   return (
-    <div className="h-screen bg-gray-900 flex flex-col justify-center items-center text-white">
-      <h1 className="text-5xl font-bold mb-3">Our Team</h1>
-      <p className="text-xl mb-5">Meet our amazing team members!</p>
-      <div className="flex flex-wrap justify-center">
+    <div className="h-screen bg-gray-900 flex flex-col  items-center text-white">
+      <h1 className="text-5xl font-bold mb-6 mt-28">Our Team</h1>
+      <p className="text-xl mb-8 ">Meet our amazing team members!</p>
+      <div className="flex flex-wrap justify-center gap-x-6">
         {/* Map over the teamMembers array and render a card for each member */}
         {teamMembers.map((member, index) => (
-          <div key={index} className="bg-gray-800 rounded-lg p-6 mb-6 mr-6 flex items-center" style={{ minWidth: '250px' }}>
+          <div key={index} className="bg-gray-800 rounded-lg p-6 mb-6 mr-6 flex flex-col items-center h-1/2- " style={{ minWidth: '250px' }}>
             {/* Render the image with the member's name */}
-            <img src={member.imageUrl} alt={member.name} className="h-20 w-20 rounded-full mr-4" />
+            <img src={member.imageUrl} alt={member.name} className="h-40 w-40 rounded-full m-4" />
             <div>
-              <h2 className="text-2xl font-bold mb-2">{member.name}</h2>
-              <p className="text-lg">Student ID: {member.studentId}</p>
+              <h2 className="text-2xl font-bold mb-2 mt-4">{member.name}</h2>
+              <p className="text-lg mb-2">Student ID: {member.studentId}</p>
             </div>
           </div>
         ))}

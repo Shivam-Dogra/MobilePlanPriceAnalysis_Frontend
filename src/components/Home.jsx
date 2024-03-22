@@ -12,7 +12,7 @@ const Home = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-center items-center text-white pt-10">
         <div className="md:w-1/2 md:pr-4 text-center"> {/* Adjusted padding right for larger screens */}
           <h1 className="text-5xl font-bold mb-3">Mobile Plan Price Analysis</h1> {/* Increased font size */}
-          <p className="text-xl mb-5">Discover Mobile Plans from Bell, Rogers & Freedom</p> {/* Increased font size */}
+          <p className="text-xl mb-8">Discover Mobile Plans from Bell, Rogers & Freedom</p> {/* Increased font size */}
           <Link to="/team" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg"> {/* Increased button size */}
             Our Team
           </Link>
