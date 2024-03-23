@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from './Button';
-import BoxCard from './BoxCard'; // Import BoxCard component
+import BoxCard from './BoxCard'; 
+import LoadingAnimation from './LoadingAnimation';
 
 const BestPlan = () => {
   const [plans, setPlans] = useState([]);
@@ -31,19 +32,19 @@ const BestPlan = () => {
 
   return (
     <div className="container mx-auto mt-12">
-      <h1 className="text-3xl font-bold mb-4 font-serif text-white flex justify-center m-10">Best-Plan</h1>
+      <h1 className="text-3xl font-bold mb-4 font-serif text-white flex justify-center m-10">Get the best plan for you based on below criteria</h1>
       <div className="flex justify-center mb-4">
         <Button text="Price" onClick={handlePriceButtonClick} />
         <Button text="Data" onClick={handleDataButtonClick} />
       </div>
-      {loading ? (
-        <p className="text-3xl font-bold text-center mb-8 text-gray-500">Scraping and getting the best plan for you..</p>
+      <div className="text-center mb-8">
+      {loading && <p className="text-3xl font-bold text-gray-500 mb-4">Scraping and getting the best plan for you..</p>} 
+        {loading && <LoadingAnimation />}
+      </div>
+      {plans.length > 0 && selectedCriteria ? (
+        plans.map(plan => <BoxCard key={plan.id} plan={plan} />)
       ) : (
-        plans.length > 0 && selectedCriteria ? ( // Check if plans exist and a criteria is selected
-          plans.map(plan => <BoxCard key={plan.id} plan={plan} />) // Render BoxCard for each plan
-        ) : (
-          <p className="text-3xl font-bold text-center mb-8 text-gray-500">No plans available.</p>
-        )
+        <p className="text-3xl font-bold text-center text-gray-500"></p>
       )}
     </div>
   );
