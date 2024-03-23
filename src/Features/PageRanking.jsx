@@ -97,7 +97,7 @@ const PageRanking = () => {
       </div>
 
       {/* Display Inverted Indexing Results */}
-<div className="mt-4">
+<div className="mt-4 w-2/3">
   {ierror && !invertedIndexData.length > 0 && (
     <p className="text-red-500">{ierror}</p>
   )}
