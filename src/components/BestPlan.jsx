@@ -31,7 +31,7 @@ const BestPlan = () => {
 
   return (
     <div className="container mx-auto mt-12">
-      <h1 className="text-3xl font-bold mb-4 font-serif text-white flex justify-center m-10">Best-Plan</h1>
+      <h1 className="text-3xl font-bold mb-4 font-serif text-white flex justify-center m-10">Get the best plan for you based on below criteria</h1>
       <div className="flex justify-center mb-4">
         <Button text="Price" onClick={handlePriceButtonClick} />
         <Button text="Data" onClick={handleDataButtonClick} />
