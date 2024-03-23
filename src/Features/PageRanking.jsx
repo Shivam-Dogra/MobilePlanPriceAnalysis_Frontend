@@ -14,6 +14,7 @@ const PageRanking = () => {
       return; 
     }
     setError("");
+    setIError("");
     // Encode the search word before passing it to the API call
     const encodedSearchWord = encodeURIComponent(searchWord);
     
