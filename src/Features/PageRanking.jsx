@@ -5,12 +5,15 @@ const PageRanking = () => {
   const [searchWord, setSearchWord] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [invertedIndexData, setInvertedIndexData] = useState([]);
+  const [error, setError] = useState(""); 
+  const [ierror, setIError] = useState(""); 
 
   const handleSearch = () => {
     if (!searchWord.trim()) {
-      alert('Please enter word to search');
-      return; // Exit the function early if search word is empty
+      setError("Please enter a word 😬"); 
+      return; 
     }
+    setError("");
     // Encode the search word before passing it to the API call
     const encodedSearchWord = encodeURIComponent(searchWord);
     
@@ -29,10 +32,22 @@ const PageRanking = () => {
     // Hit the inverted index backend API with the search word
     axios.get(`http://localhost:9091/mobile-plans/invertedIndex/${encodedSearchWord}`)
       .then(response => {
-        setInvertedIndexData(response.data);
-      })
+        if(response.data.length === 0){
+          setIError("No matching results found in the inverted index 😬");
+          setInvertedIndexData([]);
+        }
+        else {
+          setInvertedIndexData(response.data);
+        }
+              })
       .catch(error => {
         console.error('Error fetching inverted index:', error);
+        if (error.response.status === 404) {
+          setIError("Keyword not found in inverted indexing 😬");
+        } else {
+          setIError("An error occurred while fetching inverted index data 😬");
+        }
+        setInvertedIndexData([]);
       });
   };
 
@@ -61,6 +76,7 @@ const PageRanking = () => {
       
       {/* Display Page Ranking Results */}
       <div className="mt-4">
+      {error && (<p className="text-red-500">{error}</p>)}
         {searchResults.length > 0 && (
           <ul className="list-disc list-inside">
             {searchResults.map(({ webPageName, score }) => (
@@ -81,16 +97,18 @@ const PageRanking = () => {
       </div>
 
       {/* Display Inverted Indexing Results */}
-      <div className="mt-4">
-        
-        {invertedIndexData.length > 0 && (
-          
-          <div className="bg-white shadow-md rounded-lg p-4 text-l m-6 text-blue-600">
-            <h2 className="text-2xl font-bold mb-2">Inverted Indexing Results</h2>
-            <pre>{JSON.stringify(invertedIndexData, null, 2)}</pre>
-          </div>
-        )}
-      </div>
+<div className="mt-4">
+  {ierror && !invertedIndexData.length > 0 && (
+    <p className="text-red-500">{ierror}</p>
+  )}
+  {/* Render the JSON response section only when there's no error */}
+  {!ierror && invertedIndexData.length > 0 && (
+    <div className="bg-white shadow-md rounded-lg p-4 text-l m-6 text-blue-600">
+      <h2 className="text-2xl font-bold mb-2">Inverted Indexing Results</h2>
+      <pre>{JSON.stringify(invertedIndexData, null, 2)}</pre>
+    </div>
+  )}
+</div>
     </div>
   );
 };

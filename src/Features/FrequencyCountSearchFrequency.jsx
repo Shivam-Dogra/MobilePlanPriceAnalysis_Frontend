@@ -11,7 +11,7 @@ const FrequencyCount = () => {
 
   const handleCountButtonClick = () => {
     if (searchQuery.trim() === "") {
-      setError("Please enter a word to count 😬"); 
+      setError("Please enter a word 😬"); 
       return;
     }
     setError("");
@@ -78,7 +78,7 @@ const FrequencyCount = () => {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-wrap items-start">
+            <div className="flex flex-wrap items-start gap-3">
               {searchFrequencyData.map(({ word, frequency }) => (
                 <div
                   key={word}
