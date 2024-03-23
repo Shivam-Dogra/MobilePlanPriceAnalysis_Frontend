@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/mobileLogo.png";
 import menuIcon from "../assets/menu.png";
 import { NAV_LINKS, featureLists } from "../constants";
+import phoneInt from "../assets/phoneIntellect.png"
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -21,6 +22,7 @@ const Navbar = () => {
           height={50}
           width={40}
         />
+        <img src={phoneInt} alt="phone"  height={90} width={90}/>
       </div>
       <div className="justify-center items-center flex-grow">
         <ul className="flex justify-center items-center gap-4">
