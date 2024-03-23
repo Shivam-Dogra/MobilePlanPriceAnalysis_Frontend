@@ -82,9 +82,11 @@ const PageRanking = () => {
 
       {/* Display Inverted Indexing Results */}
       <div className="mt-4">
-        <h2 className="text-2xl font-bold mb-2">Inverted Indexing Results</h2>
+        
         {invertedIndexData.length > 0 && (
-          <div className="bg-white shadow-md rounded-lg p-4 text-l m-2 text-blue-600">
+          
+          <div className="bg-white shadow-md rounded-lg p-4 text-l m-6 text-blue-600">
+            <h2 className="text-2xl font-bold mb-2">Inverted Indexing Results</h2>
             <pre>{JSON.stringify(invertedIndexData, null, 2)}</pre>
           </div>
         )}
