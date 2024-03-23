@@ -9,10 +9,10 @@ const Team = () => {
   // Define an array of team members with names, student IDs, and image URLs
   const teamMembers = [
     { name: 'Shivam Dogra', studentId: '110136372', imageUrl: shivamImage },
-    { name: 'Anisha Miyan', studentId: '987654321', imageUrl: anishaImage },
-    { name: 'Palak Desai', studentId: '456789123', imageUrl: palakImage },
-    { name: 'Jasmine Kaur Gill', studentId: '321654987', imageUrl: jasmineImage },
-    { name: 'Namandeep Kaur', studentId: '654321987', imageUrl: namanImage }
+    { name: 'Anisha Miyan', studentId: '110130117', imageUrl: anishaImage },
+    { name: 'Palak Desai', studentId: '110136186', imageUrl: palakImage },
+    { name: 'Jasmine Kaur Gill', studentId: '110135644', imageUrl: jasmineImage },
+    { name: 'Namandeep Kaur', studentId: '110147857', imageUrl: namanImage }
   ];
 
   return (
