@@ -41,6 +41,22 @@
   color: #888;
 } */
 
+@keyframes changeColor {
+  0% {
+    background-color: #c5d005; /* light blue */
+  }
+  100% {
+    background-color: #3f3ff9; /* dark blue */
+  }
+}
+
+.color-change-animation {
+  animation: changeColor 1s infinite alternate;
+}
+
+
+
+
 body{
   background-color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BoxCard from './BoxCard';
+import LoadingAnimation from './LoadingAnimation';
+
 
 const Freedom = () => {
   const [freedomPlans, setFreedomPlans] = useState([]);
@@ -28,7 +30,11 @@ const Freedom = () => {
   return (
     <div className="container mx-auto mt-12">
       <h1 className="text-3xl font-bold mb-4 font-serif text-white flex justify-center m-10">Best Freedom Plans</h1>
-      {loading && <p  className="text-3xl font-bold text-center mb-8 text-gray-500"> Scraping Freedom Plans for you..</p>}
+      <div className="text-center mb-8">
+      {loading && <p className="text-3xl font-bold text-gray-500 mb-4">Scraping and getting the best plan for you..</p>} 
+        {loading && <LoadingAnimation />}
+      </div>
+      {/*loading && <p  className="text-3xl font-bold text-center mb-8 text-gray-500"> Scraping Freedom Plans for you..</p>*/}
       {error && <p className="text-red-500">{error}</p>}
       {freedomPlans && freedomPlans.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 m-10">

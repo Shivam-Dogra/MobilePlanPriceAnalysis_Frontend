@@ -27,7 +27,7 @@ const FrequencyCount = () => {
           setError("Invalid word list format. Please check your input 😬"); 
       }  
       else {
-        setError("Failed to count the frequency. Please try again. 😬"); 
+        setError("Special Character not allowed. Please try again. 😬"); 
       }
       });
   };
@@ -45,6 +45,25 @@ const FrequencyCount = () => {
         });
     }
   }, [frequencyCountData]);
+
+
+
+  // Function to toggle glow animation
+  const toggleGlow = () => {
+    const frequencies = document.querySelectorAll('.frequency');
+    frequencies.forEach(frequency => {
+      frequency.classList.toggle('glow-animation');
+    });
+  };
+
+  // Effect to toggle glow animation at regular intervals
+  useEffect(() => {
+    const intervalId = setInterval(toggleGlow, 3000); // Toggle glow every 5 seconds
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
+
+  setInterval(toggleGlow, 3000);
+
 
   return (
     <>
@@ -85,8 +104,8 @@ const FrequencyCount = () => {
                   className="bg-white text-gray-800 rounded-md p-2 my-4 py-3"
                 >
                   <p>
-                    {word}:{" "}
-                    <span className="bg-blue-200 text-white rounded-full px-2">
+                    {word} {" "}
+                    <span className="bg-blue-300 text-white rounded-full px-2 color-change-animation">
                       {frequency}
                     </span>
                   </p>
