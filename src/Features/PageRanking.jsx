@@ -18,35 +18,75 @@ const PageRanking = () => {
     // Encode the search word before passing it to the API call
     const encodedSearchWord = encodeURIComponent(searchWord);
     
-    // Hit the page ranking backend API with the encoded search word
+
     axios.get(`http://localhost:9091/mobile-plans/pageranking?keyword=${encodedSearchWord}`)
-      .then(response => {
+  .then(pagerankingResponse => {
+    if (pagerankingResponse.status === 200) {
+      axios.get(`http://localhost:9091/mobile-plans/invertedIndex/${encodedSearchWord}`)
+        .then(invertedIndexResponse => {
+          if (invertedIndexResponse.status === 200) {
+            setSearchResults(pagerankingResponse.data.map(result => ({
+              ...result,
+              webPageName: formatURL(result.webPageName),
+            })));
+          } else if (invertedIndexResponse.status === 404) {
+            setError("Invalid Keyword format 😬");
+          } else {
+            setError("Invalid Keyword format 😬");
+          }
+        })
+        .catch(error => {
+          setError("Invalid Keyword format 😬");
+        });
+    } else if (pagerankingResponse.status === 404) {
+      setError("Invalid Keyword format 😬");
+    } else {
+      setError("Invalid Keyword format 😬");
+    }
+  })
+  .catch(error => {
+    console.error('Invalid Keyword format 😬', error);
+    setError("Invalid Keyword format 😬");
+  });
+
+  
+
+    // Hit the page ranking backend API with the encoded search word
+    /* axios.get(`http://localhost:9091/mobile-plans/pageranking?keyword=${encodedSearchWord}`)
+    .then(response => {
+      if (response.status === 404) {
+        setError("Invalid Keyword format 😬");
+      }
+      else {
         setSearchResults(response.data.map(result => ({
           ...result,
           webPageName: formatURL(result.webPageName),
         })));
-      })
-      .catch(error => {
-        console.error('Error fetching page ranking:', error);
-      });
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching page ranking:', error);
+      setError("Invalid Keyword format 😬");
+    });
+  */
 
     // Hit the inverted index backend API with the search word
     axios.get(`http://localhost:9091/mobile-plans/invertedIndex/${encodedSearchWord}`)
       .then(response => {
         if(response.data.length === 0){
-          setIError("No matching results found in the inverted index 😬");
+          setIError("");
           setInvertedIndexData([]);
         }
         else {
           setInvertedIndexData(response.data);
         }
-              })
+        })
       .catch(error => {
         console.error('Error fetching inverted index:', error);
         if (error.response.status === 404) {
-          setIError("Keyword not found in inverted indexing 😬");
+          setIError("");
         } else {
-          setIError("An error occurred while fetching inverted index data 😬");
+          setIError("");
         }
         setInvertedIndexData([]);
       });
@@ -78,7 +118,7 @@ const PageRanking = () => {
       {/* Display Page Ranking Results */}
       <div className="mt-4">
       {error && (<p className="text-red-500">{error}</p>)}
-        {searchResults.length > 0 && (
+        {!error && searchResults.length > 0 && (
           <ul className="list-disc list-inside">
             {searchResults.map(({ webPageName, score }) => (
               <li key={webPageName} className="bg-white shadow-md rounded-lg p-4 text-l m-2 hover:animate-pulse transition duration-300">

@@ -54,9 +54,6 @@
   animation: changeColor 1s infinite alternate;
 }
 
-
-
-
 body{
   background-color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
@@ -67,6 +64,7 @@ body{
   width: 100%;
   height: 100%;
 }
+
 
 .loader-container {
   display: flex;

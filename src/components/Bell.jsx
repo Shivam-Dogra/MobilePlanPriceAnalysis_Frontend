@@ -23,6 +23,22 @@ const Bell = () => {
       }
     };
 
+    /*
+    // Save the data to Plans.json file
+        fs.writeFile('Plans.json', JSON.stringify(response.data), 'utf8', (err) => {
+          if (err) {
+            console.error('Error writing to Plans.json:', err);
+          } else {
+            console.log('Plans.json file saved successfully!');
+          }
+        });
+      } catch (error) {
+        setError("An error occurred while fetching Bell plans. Please try again later.");
+        setLoading(false);
+      }
+    };
+    */
+
     fetchData(); // Fetch data when component mounts
 
   }, []); // Empty dependency array ensures useEffect runs only once
@@ -35,7 +51,7 @@ const Bell = () => {
         {loading && <LoadingAnimation />}
       </div>
       {/*loading && <p  className="text-3xl font-bold text-center mb-8 text-gray-500"> Scraping Bell Plans for you..</p>*/}
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500 text-center mb-8">{error}</p>}
       {bellPlans && bellPlans.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 m-10">
           {bellPlans.map((plan, index) => (
